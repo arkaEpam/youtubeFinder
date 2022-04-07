@@ -1,0 +1,36 @@
+.input1{
+    height: 25px;
+    width: 400px;
+    display: block;
+    margin-bottom: 5%;
+    align-self: center;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-left: 40px;
+}
+.submit-btn{
+    height: 30px;
+    width: 80px;
+    background-color: rgb(169, 29, 134);
+    border-color: blueviolet;
+    color: white;
+}
+
+#important td{
+    margin-left: 100px;
+    padding-left: 100px;
+}
+
+table img{
+    height: 90px;
+    width: 160px;
+}
+
+/* #tableHeading{
+    background-color: rgb(181, 150, 210);
+    text-align: center;
+} */
