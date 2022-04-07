@@ -58,7 +58,6 @@ function onAddForm(e) {
         alert("Please Enter Topic Before Submitting.");
         return false;
     }
-    alert("didn't reach");
     fetchingFromAPI();
 }
 f.addEventListener("submit", onAddForm);

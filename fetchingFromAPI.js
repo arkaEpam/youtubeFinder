@@ -2,7 +2,7 @@ async function fetchingFromAPI(){
     const searchKey = text;
     console.log("This is searchKey file "+searchKey);
 
-    const APIKEY = "AIzaSyDsXJuqQWQiYb3BWrtxNVxaXaPmjhi7xAo";
+    const APIKEY = apiKey.apiKEy;
     const url = "https://www.googleapis.com/youtube/v3/search?key="+APIKEY+
     "&type=video&part=snippet&maxResults=100&q="+searchKey;
     var data;
