@@ -12,7 +12,6 @@ async function fetchingFromAPI(){
         .then(d => {data = d})
         .catch(err => console.log(err));
     console.log(data);
-    youtubeData(data);
     var totalPages = Math.round(data.pageInfo.totalResults/10);
     data.items.forEach(item => {
         var i = document.getElementById("important");
@@ -41,15 +40,13 @@ async function fetchingFromAPI(){
 
         document.getElementById("important").append(video);
     });
-    return {
-        a:1,
-        b:2
-    };
+    
+    // youtubeData(data);
 }
 
-export function youtubeData(data){
-    return typeof data;
-}
+// export function youtubeData(data){
+//     return typeof data;
+// }
 
 
 // https://www.googleapis.com/youtube/v3/search?key=AIzaSyDsXJuqQWQiYb3BWrtxNVxaXaPmjhi7xAo

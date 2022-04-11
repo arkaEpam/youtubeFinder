@@ -3,10 +3,7 @@ import {expect} from 'chai';
 
 describe("async call test",()=>{
     it("returns object", ()=>{
-        const expected = typeof {
-            a:1,
-            b:2
-        };
+        const expected = typeof {};
         const actual = youtubeData();
         expect(typeof actual).to.deep.equal(typeof expected);
     })
