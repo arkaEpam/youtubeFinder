@@ -1,47 +1,26 @@
-async function fetchingFromAPI(){
+async function fetchingFromAPI(nextToken){
     const searchKey = text;
     console.log("This is searchKey file "+searchKey);
 
     const APIKEY = apiKey.apiKEy;
     const url = "https://www.googleapis.com/youtube/v3/search?key="+APIKEY+
-    "&type=video&part=snippet&maxResults=100&q="+searchKey;
-    var data;
-    var video = '';
-    await fetch(url)
-        .then(response => response.json())
-        .then(d => {data = d})
-        .catch(err => console.log(err));
-    console.log(data);
-    var totalPages = Math.round(data.pageInfo.totalResults/10);
-    data.items.forEach(item => {
-        var i = document.getElementById("important");
-        var row = i.insertRow(-1);
-        var cell1 = row.insertCell(0);
-        var cell2 = row.insertCell(1);
-        var cell3 = row.insertCell(2);
-        var cell4 = row.insertCell(3);
-        var cell5 = row.insertCell(4);
-
-        var a = document.createElement("a");
-        var link = document.createTextNode("This is link");
-        a.appendChild(link); 
-        a.title = "This is Link"; 
-
-        a.href = "https://www.youtube.com/watch?v="+item.id.videoId;
-
-        var img = document.createElement("img");
-        img.src = item.snippet.thumbnails.high.url;
-
-        cell1.append(a);
-        cell2.innerHTML = item.snippet.title;
-        cell3.innerHTML = item.snippet.channelTitle; 
-        cell4.innerHTML = item.snippet.publishedAt;
-        cell5.appendChild(img);
-
-        document.getElementById("important").append(video);
-    });
-    
-    // youtubeData(data);
+    "&type=video&part=snippet&maxResults=10&q="+searchKey+"&pageToken="+nextToken;
+    var nextToken = await youtubeGetData(url,text);
+    const nextBtn = document.createElement("input");
+    nextBtn.setAttribute('type', "submit");
+    nextBtn.setAttribute('value', "Next");
+    nextBtn.setAttribute('class',"submit-btn")
+    document.getElementById("important").append(nextBtn);
+    nextBtn.addEventListener("click", onNext);
+    function onNext(e) {
+        e.preventDefault();
+        var deleteDiv = document.getElementById("important");
+        while(deleteDiv.firstChild){
+            deleteDiv.removeChild(deleteDiv.firstChild);
+        }
+        console.log("hii");
+        fetchingFromAPI(nextToken);
+    }
 }
 
 // export function youtubeData(data){
