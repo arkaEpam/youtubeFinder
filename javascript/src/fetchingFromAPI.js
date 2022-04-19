@@ -4,13 +4,14 @@ async function fetchingFromAPI(nextToken){
 
     const APIKEY = apiKey.apiKEy;
     const url = "https://www.googleapis.com/youtube/v3/search?key="+APIKEY+
-    "&type=video&part=snippet&maxResults=10&q="+searchKey+"&pageToken="+nextToken;
+    "&type=video&part=snippet&maxResults=15&q="+searchKey+"&pageToken="+nextToken;
     var nextToken = await youtubeGetData(url,text);
     const nextBtn = document.createElement("input");
     nextBtn.setAttribute('type', "submit");
     nextBtn.setAttribute('value', "Next");
     nextBtn.setAttribute('class',"submit-btn")
-    document.getElementById("important").append(nextBtn);
+    //document.getElementById("important").append(nextBtn);
+    document.body.appendChild(nextBtn);
     nextBtn.addEventListener("click", onNext);
     function onNext(e) {
         e.preventDefault();
@@ -18,6 +19,7 @@ async function fetchingFromAPI(nextToken){
         while(deleteDiv.firstChild){
             deleteDiv.removeChild(deleteDiv.firstChild);
         }
+        document.body.removeChild(nextBtn);
         console.log("hii");
         fetchingFromAPI(nextToken);
     }

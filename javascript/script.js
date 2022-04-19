@@ -20,30 +20,13 @@ s.setAttribute('type', "submit");
 s.setAttribute('value', "Submit");
 s.setAttribute('class',"submit-btn")
 
-const imp = document.createElement("table");
+const imp = document.createElement("div");
 imp.setAttribute('id',"important");
-var row = imp.insertRow(0);
-var cell1 = row.insertCell(0);
-cell1.setAttribute("id","tableHeading");
-var cell2 = row.insertCell(1);
-cell2.setAttribute("id","tableHeading");
-var cell3 = row.insertCell(2);
-cell3.setAttribute("id","tableHeading");
-var cell4 = row.insertCell(3);
-cell4.setAttribute("id","tableHeading");
-var cell5 = row.insertCell(4);
-cell5.setAttribute("id","tableHeading");
 
-cell1.innerHTML = "LINK"
-cell2.innerHTML = "TITLE"
-cell3.innerHTML = "CHANNEL NAME"
-cell4.innerHTML = "Publish At"
-cell5.innerHTML = "Thumbnail"
 
 f.appendChild(heading);
 f.appendChild(i);
 f.appendChild(s);
-// f.appendChild(imp);
 
 container.appendChild(f);
 
