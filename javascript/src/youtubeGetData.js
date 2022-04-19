@@ -1,19 +1,24 @@
 async function youtubeGetData(url){
     var data;
-    var nextPageToken;
+    var pages = {
+        nextPageToken : "",
+        prePageToken : ""
+    }
     await fetch(url)
         .then(response => response.json())
         .then(d => {data = d})
         .catch(err => {
             console.log(err);
+            alert("Showing you a static data as we reached our daily youtube API limit.")
             data = staticData;
             return "TEST STATICALLY";
         });
     console.log(data);
-    nextPageToken = data.nextPageToken;
-    console.log(nextPageToken);
+    pages.nextPageToken = data.nextPageToken;
+    pages.prePageToken = data.prevPageToken;
+    console.log(pages);
     displaydata(data)
-    return nextPageToken;
+    return pages;
 }
 function displaydata(data){
     data.items.forEach(item => {
