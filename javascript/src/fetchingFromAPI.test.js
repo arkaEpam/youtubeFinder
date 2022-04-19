@@ -1,4 +1,4 @@
-import {youtubeData} from "./fetchingFromAPI.js";
+import {youtubeData} from "./dataTest";
 import {expect} from 'chai';
 
 describe("async call test",()=>{
