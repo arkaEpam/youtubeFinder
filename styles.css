@@ -32,13 +32,18 @@
 .videoDiv{
     display: flex;
     flex-direction: column;
-    flex-basis: 30%;
+    flex-basis: 25%;
     background-color: aliceblue;
     margin-bottom: 10px;
     border-style: solid;
     border-width: .5px;
     border-radius: 5px;
     margin-bottom: 2%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.videoDiv:hover{
+    /* transform: scale(1.1); */
+    transform: perspective(400px) rotateY(10deg);
 }
 .videoDivText{
     padding: 2% 2%;
