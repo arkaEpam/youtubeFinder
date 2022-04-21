@@ -5,7 +5,7 @@ async function fetchingFromAPI(nextToken){
     const APIKEY = apiKey.apiKEy;
     const url = "https://www.googleapis.com/youtube/v3/search?key="+APIKEY+
     "&type=video&part=snippet&maxResults=15&q="+searchKey+"&pageToken="+nextToken;
-    var tokens = await youtubeGetData(url,text);
+    var tokens = await youtubeGetData(url);
 
     var buttonpage = document.createElement("div");
     buttonpage.setAttribute("class","buttonpage");
@@ -44,13 +44,10 @@ async function fetchingFromAPI(nextToken){
         }
         document.body.removeChild(buttonpage);
         console.log("hii");
-        fetchingFromAPI(tokens.prePageToken);
+        tokens.prePageToken ? fetchingFromAPI(tokens.prePageToken):alert("This is the First Page No Previous Page");
     }
 }
 
-// export function youtubeData(data){
-//     return typeof data;
-// }
 
 
 // https://www.googleapis.com/youtube/v3/search?key=AIzaSyDsXJuqQWQiYb3BWrtxNVxaXaPmjhi7xAo
